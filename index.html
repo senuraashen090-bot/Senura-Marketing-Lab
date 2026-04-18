@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marketing Portfolio | Senura Ashen</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0f1a;
+      --card:#12182a;
+      --card2:#0f1525;
+      --text:#eaf0ff;
+      --muted:#9aa4c0;
+      --accent:#5d7bff;
+      --accent2:#2ee59d;
+      --border:rgba(255,255,255,0.08);
+      --shadow: 0 20px 60px rgba(0,0,0,0.55);
+      --radius: 18px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:"Poppins", sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background: radial-gradient(circle at top left, rgba(93,123,255,0.18), transparent 45%),
+                  radial-gradient(circle at bottom right, rgba(46,229,157,0.15), transparent 45%),
+                  var(--bg);
+      color:var(--text);
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+    nav{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background: rgba(11,15,26,0.75);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 0;
+    }
+
+    .logo{
+      font-size:18px;
+      font-weight:700;
+      letter-spacing:1px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo span{
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:20px;
+      font-size:14px;
+      font-weight:500;
+      color:var(--muted);
+    }
+
+    .nav-links a:hover{
+      color:var(--text);
+      transition:0.3s;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:14px;
+      font-size:14px;
+      font-weight:600;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.03);
+      transition:0.3s;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      transform: translateY(-2px);
+      border:1px solid rgba(93,123,255,0.5);
+      box-shadow: 0 15px 35px rgba(93,123,255,0.12);
+    }
+
+    .btn-primary{
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border:none;
+      color:#07101a;
+    }
+
+    .btn-primary:hover{
+      box-shadow: 0 20px 45px rgba(46,229,157,0.18);
+    }
+
+    /* HERO */
+    header{
+      padding:90px 0 70px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:30px;
+      align-items:center;
+    }
+
+    .hero h1{
+      font-size:48px;
+      line-height:1.15;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .hero h1 span{
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      font-size:16px;
+      color:var(--muted);
+      margin-bottom:28px;
+      max-width:600px;
+      line-height:1.8;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:25px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3{
+      font-size:16px;
+      margin-bottom:10px;
+    }
+
+    .hero-card p{
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.6;
+      margin-bottom:20px;
+    }
+
+    .stat-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+    }
+
+    .stat{
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:16px;
+      text-align:left;
+    }
+
+    .stat h2{
+      font-size:20px;
+      margin-bottom:4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .stat small{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* SECTION */
+    section{
+      padding:75px 0;
+    }
+
+    .section-title{
+      margin-bottom:35px;
+    }
+
+    .section-title h2{
+      font-size:28px;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      font-size:14px;
+      max-width:650px;
+      line-height:1.8;
+    }
+
+    /* CARDS */
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.45);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform: translateY(-4px);
+      border:1px solid rgba(93,123,255,0.35);
+    }
+
+    .card h3{
+      font-size:16px;
+      margin-bottom:10px;
+    }
+
+    .card p{
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.7;
+      margin-bottom:12px;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.02);
+      color:var(--muted);
+    }
+
+    /* REPORTS */
+    .report-item{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:20px;
+    }
+
+    .report-item h3{
+      font-size:16px;
+      margin-bottom:6px;
+    }
+
+    .report-item p{
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.6;
+      margin:0;
+    }
+
+    /* SKILLS */
+    .skill{
+      margin-bottom:16px;
+    }
+
+    .skill label{
+      display:flex;
+      justify-content:space-between;
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+
+    .bar{
+      width:100%;
+      height:10px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.06);
+      overflow:hidden;
+      border:1px solid var(--border);
+    }
+
+    .bar span{
+      display:block;
+      height:100%;
+      border-radius:999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+
+    /* CONTACT */
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    input, textarea{
+      width:100%;
+      padding:14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.03);
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+
+    textarea{
+      resize:none;
+      height:140px;
+    }
+
+    input:focus, textarea:focus{
+      border:1px solid rgba(93,123,255,0.6);
+    }
+
+    footer{
+      border-top:1px solid var(--border);
+      padding:30px 0;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 950px){
+      .hero{
+        grid-template-columns:1fr;
+      }
+
+      .grid-3{
+        grid-template-columns:1fr;
+      }
+
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">
+        <span>Senura</span> Marketing Lab
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#reports">Reports</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a class="btn btn-primary" href="#contact">Hire Me</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <div class="container hero">
+      <div>
+        <h1>
+          Performance Marketer <br/>
+          & <span>Digital Growth Strategist</span>
+        </h1>
+
+        <p>
+          I help brands scale using Meta Ads, Google Ads, SEO, content strategy, and conversion-focused marketing.
+          I also create detailed campaign reports and growth strategies for businesses.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#portfolio" class="btn btn-primary">View My Work</a>
+          <a href="#reports" class="btn">See Marketing Reports</a>
+          <a href="#contact" class="btn">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Marketing Growth Snapshot</h3>
+        <p>Results-driven digital marketer focusing on conversions, performance and brand visibility.</p>
+
+        <div class="stat-grid">
+          <div class="stat">
+            <h2>+250%</h2>
+            <small>ROAS Growth</small>
+          </div>
+          <div class="stat">
+            <h2>80+</h2>
+            <small>Projects Done</small>
+          </div>
+          <div class="stat">
+            <h2>10+</h2>
+            <small>Industries Served</small>
+          </div>
+          <div class="stat">
+            <h2>$100K+</h2>
+            <small>Ads Managed</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Me</h2>
+        <p>
+          I am a digital marketing specialist with experience in Meta Ads, Google Ads, SEO, content strategy,
+          web design, and conversion optimization. I build marketing strategies that deliver measurable results.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Performance Marketing</h3>
+          <p>
+            I create high-converting campaigns focused on ROI, CPA, and scalable growth.
+          </p>
+          <div class="tags">
+            <span class="tag">Meta Ads</span>
+            <span class="tag">Google Ads</span>
+            <span class="tag">ROAS</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Brand & Content Strategy</h3>
+          <p>
+            I design content plans that increase reach, engagement, and audience trust.
+          </p>
+          <div class="tags">
+            <span class="tag">Content Planning</span>
+            <span class="tag">Reels Strategy</span>
+            <span class="tag">Social Growth</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>SEO & Website Growth</h3>
+          <p>
+            I optimize websites for better ranking, faster performance, and higher conversions.
+          </p>
+          <div class="tags">
+            <span class="tag">SEO</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">UI/UX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>My Services</h2>
+        <p>
+          I provide complete marketing solutions from ad strategy to content and optimization.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Meta Ads Management</h3>
+          <p>Campaign creation, targeting, retargeting, creatives, pixel tracking, and scaling.</p>
+        </div>
+
+        <div class="card">
+          <h3>Google Ads Management</h3>
+          <p>Search Ads, Display, YouTube Ads, keyword research, and conversion optimization.</p>
+        </div>
+
+        <div class="card">
+          <h3>Marketing Strategy & Planning</h3>
+          <p>Full strategy planning for brand growth, audience building, and lead generation.</p>
+        </div>
+
+        <div class="card">
+          <h3>SEO Optimization</h3>
+          <p>On-page SEO, keyword research, competitor analysis, and ranking improvement.</p>
+        </div>
+
+        <div class="card">
+          <h3>Website Design</h3>
+          <p>Landing pages, conversion-focused websites, UI/UX design, and brand identity.</p>
+        </div>
+
+        <div class="card">
+          <h3>Marketing Reports & Audits</h3>
+          <p>Detailed analysis reports on brand campaigns, competitors, and ad performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPORTS -->
+  <section id="reports">
+    <div class="container">
+      <div class="section-title">
+        <h2>Marketing Reports</h2>
+        <p>
+          I create detailed marketing reports analyzing top campaigns, brand strategies, and performance results.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card report-item">
+          <div>
+            <h3>Munchee Avurudu Campaign Report</h3>
+            <p>Breakdown of strategy, creatives, emotional triggers, channels used, and audience targeting.</p>
+          </div>
+          <a class="btn btn-primary" href="reports/munchee-report.html" target="_blank">View</a>
+        </div>
+
+        <div class="card report-item">
+          <div>
+            <h3>Dialog Digital Strategy Analysis</h3>
+            <p>How Dialog uses storytelling + performance ads to dominate digital branding in Sri Lanka.</p>
+          </div>
+          <a class="btn btn-primary" href="#" target="_blank">View</a>
+        </div>
+
+        <div class="card report-item">
+          <div>
+            <h3>Keells Seasonal Promotion Report</h3>
+            <p>Analysis of seasonal promotions, offer positioning, and customer retention strategy.</p>
+          </div>
+          <a class="btn btn-primary" href="#" target="_blank">View</a>
+        </div>
+
+        <div class="card report-item">
+          <div>
+            <h3>Daraz Performance Marketing Study</h3>
+            <p>How Daraz uses flash deals, influencer ads, and retargeting to scale sales.</p>
+          </div>
+          <a class="btn btn-primary" href="#" target="_blank">View</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-title">
+        <h2>Portfolio Projects</h2>
+        <p>
+          Here are some projects I have worked on including websites, ads, social media growth and marketing campaigns.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Meta Ads Campaign for Local Business</h3>
+          <p>Generated high-quality leads with optimized targeting and conversion tracking.</p>
+          <div class="tags">
+            <span class="tag">Meta Ads</span>
+            <span class="tag">Lead Gen</span>
+            <span class="tag">Retargeting</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>SEO Growth for Hotel Website</h3>
+          <p>Improved ranking for travel keywords and increased organic traffic significantly.</p>
+          <div class="tags">
+            <span class="tag">SEO</span>
+            <span class="tag">Google Search</span>
+            <span class="tag">Content</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Website Design for Healthcare Platform</h3>
+          <p>Created a modern UI/UX website for a healthcare app with clean branding.</p>
+          <div class="tags">
+            <span class="tag">Web Design</span>
+            <span class="tag">UI/UX</span>
+            <span class="tag">Branding</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>LinkedIn Growth Strategy</h3>
+          <p>Designed a content calendar to generate leads and increase authority.</p>
+          <div class="tags">
+            <span class="tag">LinkedIn</span>
+            <span class="tag">Content Plan</span>
+            <span class="tag">Lead Gen</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Social Media Strategy for NGO</h3>
+          <p>Created campaigns to increase awareness and community engagement.</p>
+          <div class="tags">
+            <span class="tag">Facebook</span>
+            <span class="tag">Community</span>
+            <span class="tag">Awareness</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>YouTube Automation Content Strategy</h3>
+          <p>Planned high-CTR titles, scripts, and video growth strategy for USA audience.</p>
+          <div class="tags">
+            <span class="tag">YouTube</span>
+            <span class="tag">SEO</span>
+            <span class="tag">Automation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-title">
+        <h2>Skills & Tools</h2>
+        <p>
+          These are the platforms and tools I use to plan, execute, and optimize marketing strategies.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Marketing Skills</h3>
+
+          <div class="skill">
+            <label>Meta Ads <span>95%</span></label>
+            <div class="bar"><span style="width:95%"></span></div>
+          </div>
+
+          <div class="skill">
+            <label>Google Ads <span>90%</span></label>
+            <div class="bar"><span style="width:90%"></span></div>
+          </div>
+
+          <div class="skill">
+            <label>SEO <span>88%</span></label>
+            <div class="bar"><span style="width:88%"></span></div>
+          </div>
+
+          <div class="skill">
+            <label>Content Strategy <span>92%</span></label>
+            <div class="bar"><span style="width:92%"></span></div>
+          </div>
+
+          <div class="skill">
+            <label>Conversion Optimization <span>85%</span></label>
+            <div class="bar"><span style="width:85%"></span></div>
+          </div>
+
+        </div>
+
+        <div class="card">
+          <h3>Tools & Platforms</h3>
+          <p>Tools I use daily for marketing, analytics and content production.</p>
+          <div class="tags">
+            <span class="tag">Meta Business Suite</span>
+            <span class="tag">Google Analytics</span>
+            <span class="tag">Google Tag Manager</span>
+            <span class="tag">Canva</span>
+            <span class="tag">CapCut</span>
+            <span class="tag">Adobe Premiere Pro</span>
+            <span class="tag">Photoshop</span>
+            <span class="tag">Ahrefs</span>
+            <span class="tag">Semrush</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">Elementor</span>
+            <span class="tag">Figma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2>Testimonials</h2>
+        <p>
+          What clients say about working with me.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>"Great Results!"</h3>
+          <p>
+            Senura helped us scale our Facebook ads and increase leads significantly.
+            Highly recommended for performance marketing.
+          </p>
+          <div class="tags">
+            <span class="tag">Meta Ads</span>
+            <span class="tag">Lead Generation</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>"Professional & Reliable"</h3>
+          <p>
+            Excellent communication, creative ideas, and strong execution.
+            We saw clear growth in engagement and conversions.
+          </p>
+          <div class="tags">
+            <span class="tag">Brand Strategy</span>
+            <span class="tag">Content</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>"Highly Skilled Marketer"</h3>
+          <p>
+            The SEO improvements and website optimization increased our Google traffic.
+            Strong technical and marketing skills.
+          </p>
+          <div class="tags">
+            <span class="tag">SEO</span>
+            <span class="tag">Website Growth</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Me</h2>
+        <p>
+          Want to grow your business? Let’s work together. Send a message and I will respond as soon as possible.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Contact Details</h3>
+          <p><strong>Email:</strong> senuraashen090@gmail.com </p>
+          <p><strong>WhatsApp:</strong> +94 71 066 5846 /p>
+          <p><strong>Location:</strong> Sri Lanka </p>
+
+          <div class="tags">
+            <span class="tag">Available for Freelance</span>
+            <span class="tag">Remote Work</span>
+            <span class="tag">Consulting</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Send a Message</h3>
+          <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="text" placeholder="Subject" required>
+            <textarea placeholder="Write your message..." required></textarea>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Senura Ashen | Marketing Portfolio. All Rights Reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").innerText = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
